@@ -1,0 +1,32 @@
+<!--
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      회원가입 페이지
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+-->
+<ion-content  class="has-header">
+  <div padding class="registerdiv">
+    <ion-item>
+      <ion-label color="white" stacked>아이디</ion-label>
+      <ion-input type="text" color="white" [(ngModel)]="inputID"></ion-input>
+      <button ion-button clear item-right (click)="repetition(inputID)">중복확인</button>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label stacked>비밀번호</ion-label>
+      <ion-input type="password" [(ngModel)]="inputPW"></ion-input>  
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label stacked>닉네임</ion-label>
+      <ion-input type="text" [(ngModel)]="nickname"></ion-input>
+    </ion-item>
+  </div>
+  <div padding class="registerdiv">
+    <button ion-button round outline color="white" (click)="Submit(inputID, inputPW, nickname)">작성완료</button>
+    <button ion-button round outline color="white" (click)="Cancle()">취소</button>
+  </div>
+</ion-content>

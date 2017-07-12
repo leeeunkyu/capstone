@@ -1,0 +1,63 @@
+page-main-page {
+    .background{
+        background-color: #eeeefe;
+        padding:0px;
+    }
+    .establishbg{
+        padding:0px;
+        background:#000000;
+        width: auto;
+        height: 100%;
+    }
+    .wrapper {
+        background:#000000;
+        text-align: center;
+        position: relative;
+        margin-top: 20px;
+        width: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .scrolls {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        height: 80px;
+        white-space:nowrap
+    }
+    .imageDiv img {
+        box-shadow: 1px 1px 10px #999;
+        margin: 2px;
+        max-height: 50px;
+        cursor: pointer;
+        display:inline-block;
+        *display:inline;
+        *zoom:1;
+        vertical-align:top;
+    }
+    .imgsize{
+        height: 80px;
+        width: 100px
+    }
+    .ion-list{
+        padding:0px;
+    }
+    .label {
+        margin: 0;
+    }
+    .item-inner {
+        padding-right: 0px!important;
+        padding-left: 0px!important;
+    }
+    .margin{
+        padding-left: 16px!important;
+    }
+    .test{
+        padding-right: 0px!important;
+        padding-left: 0px!important;
+    }
+    .center{
+      text-align: center;
+      vertical-align:middle;
+      position: relative;
+    }
+}

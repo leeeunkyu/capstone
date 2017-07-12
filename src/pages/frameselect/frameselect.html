@@ -1,0 +1,49 @@
+<!--
+  Generated template for the Frameselect page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>frameselect</ion-title>
+       <ion-buttons end>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name='close-circle'></ion-icon>
+
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="imagediv" >
+   <!-- <label for="img2" style="cursor:pointer; opacity: 0" ><input type="checkbox" id="img2" /> <img src="assets/frame2.png"></label>
+   <label for="img3" style="cursor:pointer"><input type="checkbox" id="img3" /> <img src="assets/frame3.png"></label>
+ 
+    <label for="image3" style="cursor:pointer"><input type="checkbox" id="image3" /> 이미지 포함</label>
+    <label for="explanation3" style="cursor:pointer"><input type="checkbox" id="explanation3" /> 설명 포함</label>-->
+<!-- 프레임 선택 이미지 -->
+ <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img src="assets/frame2.png"><br><ion-checkbox [(ngModel)]="two"(ionChange)="select2()"></ion-checkbox>
+      </ion-col>
+      <ion-col>
+        <img src="assets/frame3.png"><br><ion-checkbox [(ngModel)]="three"(ionChange)="select3()"></ion-checkbox>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <img src="assets/frame4.png"><br><ion-checkbox [(ngModel)]="four"(ionChange)="select4()"></ion-checkbox>
+      </ion-col>
+      <ion-col>
+        <img src="assets/frame5.png"><br><ion-checkbox [(ngModel)]="five"(ionChange)="select5()"></ion-checkbox>
+      </ion-col>
+    </ion-row>
+ </ion-grid>
+<button ion-button round (click)="select()">선택</button>
+
+</ion-content>

@@ -1,0 +1,133 @@
+<ion-header>
+  <ion-navbar color="primary">
+  </ion-navbar>
+  <ion-toolbar color="primary" no-border-top>
+    <ion-segment color="white" [(ngModel)]="photo">
+      <ion-segment-button value="Establish">
+        필터링
+      </ion-segment-button>
+
+      <ion-segment-button color="white" value="Make">
+        만들기
+      </ion-segment-button>
+
+      <ion-segment-button value="Storage" (click)="showalbum()">
+        히스토리
+      </ion-segment-button>
+
+      <ion-segment-button value="Setting">
+        설정
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<!-- 프레임선택부분 -->
+<ion-content class="background">
+  <div [ngSwitch]="photo">
+    <ion-list *ngSwitchCase="'Make'">
+      <ion-grid align="center">
+        <ion-row>
+          <ion-col>
+          </ion-col>
+          <ion-col col-auto>
+            두가지 프레임을 선택해 주세요.<br>
+          </ion-col>
+          <ion-col>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <img src="assets/frame1.png"><br>
+            <ion-checkbox [(ngModel)]="one" (ionChange)="select1()"></ion-checkbox>
+          </ion-col>
+          <ion-col>
+            <img src="assets/frame2.png"><br>
+            <ion-checkbox [(ngModel)]="two" (ionChange)="select2()"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <img src="assets/frame3.png"><br>
+            <ion-checkbox [(ngModel)]="three" (ionChange)="select3()"></ion-checkbox>
+          </ion-col>
+          <ion-col>
+            <img src="assets/frame4.png"><br>
+            <ion-checkbox [(ngModel)]="four" (ionChange)="select4()"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- 사진선택버튼 -->
+      <div align="center">
+        <button ion-button outline round (click)="select()">선택</button>
+      </div>
+      <!-- 선택후 나오는 이미지  -->
+      <!-- 원하면 삭제가능  -->
+      <!-- <ion-item ion-item *ngFor="let image of multi_img">
+        <img [src]="image" *ngIf="image" />
+      </ion-item> -->
+    </ion-list>
+
+    <!-- 히스토리에 있는 부분 -->
+    <ion-card class="card-background-page" *ngSwitchCase="'Storage'">
+      <ion-card *ngFor="let album of albumarray">
+        <img width="100%" height="100%" src="http://117.17.158.192:8200/MainServer/image?id={{id_check}}&fileName={{album}}" *ngIf="album" (click)="download(album)" />
+        <!--<button ion-button ion-button (click)="facebook(album)">facebook</button>-->
+      </ion-card>
+    </ion-card>
+
+    <!--필터링 있는부분-->
+    <ion-list no-lines *ngSwitchCase="'Establish'">
+
+      <ion-slides pager>
+        <ion-slide *ngFor="let filter of filterarray" style="background-color: green">
+          <img src="http://117.17.158.192:8200/MainServer/imageFilter?id={{id_check}}&filterName={{filter}}" class="slide-image" *ngIf="filter" (click)="download(filter)" />
+        </ion-slide>
+      </ion-slides>
+      <div class="center">
+      <button ion-button round outline (click)="changefilter()">이미지 선택하기</button>
+    </div>
+    </ion-list>
+
+    <!-- 혜용이가 만든 필터링  -->
+    <!--<div class="establishbg">
+      <div align ="center">
+        <button ion-button outline round color="white" (click)="changefilter()">사진 불러오기2</button>
+        <ion-item ion-item *ngFor="let filter of filterarray">
+        <div class="wrapper">
+          <div class="scrolls">
+            <img width=auto height="100%" src="http://117.17.158.192:8200/MainServer/imageFilter?id={{id_check}}&filterName={{filter}}" *ngIf="filter" (click)="filterdownload(filter)">
+          </div>
+        </div>
+        </ion-item>
+      </div>
+    </div>
+</ion-list>-->
+
+    <!-- 설정에 있는 부분 -->
+    <ion-list class="background" *ngSwitchCase="'Setting'">
+      <div padding>
+        <p>기본</p>
+        <button ion-item class="margin" *ngFor="let basicitem of basicitems" (click)="basicitemSelected(basicitem)">
+      {{basicitem}}
+    </button>
+        <br>
+        <p>계정</p>
+        <button ion-item class="margin" *ngFor="let securityitem of securityitems" (click)="securityitemSelected(securityitem)">
+      {{securityitem}}
+    </button>
+        <br>
+        <p></p>
+        <button color="danger" class="margin" text-align="center" ion-item (click)="logout()">
+      로그아웃
+    </button>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>

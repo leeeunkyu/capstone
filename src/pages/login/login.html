@@ -1,0 +1,33 @@
+<!--
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Login Page
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+-->    
+<ion-content class="has-header">
+    <ion-item *ngFor="let message of chats">{{message}}</ion-item>
+</ion-content>
+
+<div padding class="logindiv">
+    <ion-item>
+      <ion-label floating><ion-icon name="person-outline"> 아이디</ion-icon></ion-label>
+      <ion-input type="text" [(ngModel)]="inputID"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating><ion-icon name="lock-outline"> 비밀번호</ion-icon></ion-label>
+      
+      <ion-input type="password" [(ngModel)]="inputPW"></ion-input>
+    </ion-item>
+</div>
+<p></p>
+<div class="logindiv" >
+  <button ion-button round outline color="light" (click)="login(inputID, inputPW)">로그인</button>
+  <button ion-button round outline color="light" (click)="RegisterPage()">회원가입</button>
+  <!--<button ion-button round>  <ion-icon name="logo-facebook"> Facebook</ion-icon></button>-->
+</div>
+
+

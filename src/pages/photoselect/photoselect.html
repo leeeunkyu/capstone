@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <button ion-button round (click)="Photoselect()">Select Photo2</button>
+  <button (click)="frameselect()">Select Frame2</button>
+  <ion-item ion-item *ngFor="let image of multi_img">
+  <img [src]="image" *ngIf="image" />
+</ion-item>
+</ion-content>
